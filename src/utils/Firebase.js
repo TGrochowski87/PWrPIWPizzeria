@@ -18,9 +18,9 @@ if (!firebase.apps.length) {
   firebase.app();
 }
 
-export const auth = firebase.auth();
+const firestore = firebase.firestore();
 
-export const firestore = firebase.firestore();
+export const auth = firebase.auth();
 
 export const addUserData = async (user, userData) => {
   return firestore
@@ -46,4 +46,12 @@ export const updateUserData = async (user, userData) => {
 
 export const getPizzas = async () => {
   return firestore.collection("pizzas").get();
+};
+
+export const sendOrder = async (user, order, price) => {
+  return firestore.collection("archivedOrders").add({
+    user: user.uid,
+    order: order,
+    price: price,
+  });
 };

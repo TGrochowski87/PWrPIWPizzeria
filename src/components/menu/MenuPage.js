@@ -10,7 +10,7 @@ const MenuPage = () => {
   return (
     <div className="menu-page">
       <div className="back-image"></div>
-      <CartContext.Provider>
+      <CartContext.Provider value={{ content, setContent }}>
         <CartTab />
         <MenuList />
       </CartContext.Provider>

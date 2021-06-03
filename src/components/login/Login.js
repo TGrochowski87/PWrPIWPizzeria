@@ -24,29 +24,12 @@ const Login = ({ setUserName, setLogoutShow }) => {
     auth
       .signInWithEmailAndPassword(emailInput, passwordInput)
       .then((u) => {
-        console.log("Zalogowano");
-        console.log(u);
         setUserName(u.user.displayName);
         history.push("/");
       })
       .catch((error) => {
         console.log(error);
       });
-    // await post("", {
-    //   email: emailInput,
-    //   password: passwordInput,
-    // }).then((res) => {
-    //   if (response.ok) {
-    //     sessionStorage.setItem("userToken", res.result.access_Token);
-    //     setUserName(res.result.userName);
-    //     sessionStorage.setItem("isAuthenticated", true);
-
-    //     history.push("/");
-    //   } else {
-    //     console.log("wrong");
-    //     setWrongInput(true);
-    //   }
-    // });
   };
 
   return (

@@ -6,14 +6,15 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 import Pointer from "./Pointer";
 
-const ComposeBlock = ({ setComposing }) => {
+const ComposeBlock = ({
+  setComposing,
+  setCompozingSize,
+  setCompozingPrice,
+}) => {
   const [selectedPrice, setSelectedPrice] = useState(0);
+  const [sizes] = useState(["Duża 42 cm", "Średnia 32 cm", "Mała 24 cm"]);
 
   const [prices] = useState([46.4, 39.4, 27.2]);
-
-  // useEffect(() => {
-  //   setSelectedPrice(pizza.prices[0]);
-  // }, [pizza]);
 
   return (
     <Container fluid className="menu-pizza">
@@ -79,6 +80,8 @@ const ComposeBlock = ({ setComposing }) => {
             <Button
               variant="outlined"
               onClick={() => {
+                setCompozingSize(sizes[selectedPrice]);
+                setCompozingPrice(prices[selectedPrice]);
                 setComposing(true);
               }}
             >

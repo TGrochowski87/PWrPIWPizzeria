@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { Form, Button } from "react-bootstrap";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { v4 as uuidv4 } from "uuid";
 
-const ComposeWindow = ({ composing, setComposing }) => {
+import CartContext from "./cart/CartContext";
+
+const ComposeWindow = ({
+  composing,
+  setComposing,
+  composingSize,
+  composingPrice,
+}) => {
   const [switchStatus, setSwitchStatus] = useState({
     sauce: true,
     dough: true,
@@ -24,6 +32,28 @@ const ComposeWindow = ({ composing, setComposing }) => {
   ]);
 
   const [extraSauce, setExtraSauce] = useState("Brak");
+
+  const { content, setContent } = useContext(CartContext);
+
+  const addToCart = () => {
+    const chosenIngredients = ingredients
+      .filter((i) => i.checked)
+      .map((i) => i.name);
+
+    setContent([
+      ...content,
+      {
+        id: uuidv4(),
+        name: "Proprio",
+        size: composingSize,
+        price: composingPrice,
+        ingredients: chosenIngredients,
+        sauceType: switchStatus.sauce ? "łagodny" : "ostry",
+        doughType: switchStatus.dough ? "grube" : "cienkie",
+        extraSauce: extraSauce,
+      },
+    ]);
+  };
 
   return (
     <>
@@ -123,7 +153,13 @@ const ComposeWindow = ({ composing, setComposing }) => {
           </Form.Group>
         </Form>
         <div className="button-space">
-          <Button variant="primary">
+          <Button
+            variant="primary"
+            onClick={() => {
+              addToCart();
+              setComposing(false);
+            }}
+          >
             <ShoppingCartIcon style={{ marginRight: "5px" }} />
             <h5>Dodaj do koszyka</h5>
           </Button>

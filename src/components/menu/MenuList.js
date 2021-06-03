@@ -9,6 +9,8 @@ import { auth, getPizzas } from "../../utils/Firebase";
 const MenuList = () => {
   const [pizzas, setPizzas] = useState([]);
   const [composing, setComposing] = useState(false);
+  const [composingSize, setCompozingSize] = useState("Duża 42 cm");
+  const [composingPrice, setCompozingPrice] = useState(46, 4);
 
   useEffect(async () => {
     const pizzasData = await getPizzas();
@@ -17,7 +19,6 @@ const MenuList = () => {
 
     pizzasData.forEach((doc) => {
       pizzasArray.push(doc.data());
-      //console.log(doc.data());
     });
 
     setPizzas(pizzasArray);
@@ -25,12 +26,21 @@ const MenuList = () => {
 
   return (
     <>
-      <ComposeWindow composing={composing} setComposing={setComposing} />
+      <ComposeWindow
+        composing={composing}
+        setComposing={setComposing}
+        composingSize={composingSize}
+        composingPrice={composingPrice}
+      />
       <div className="menu">
         {pizzas.map((pizza) => (
           <PizzaInfo key={uuidv4()} pizza={pizza} />
         ))}
-        <ComposeBlock setComposing={setComposing} />
+        <ComposeBlock
+          setComposing={setComposing}
+          setCompozingSize={setCompozingSize}
+          setCompozingPrice={setCompozingPrice}
+        />
       </div>
     </>
   );
