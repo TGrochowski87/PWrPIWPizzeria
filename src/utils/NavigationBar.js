@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Nav, Navbar } from "react-bootstrap";
 
@@ -6,11 +6,9 @@ import { Link } from "react-router-dom";
 
 import icon from "../assets/icon.png";
 
-import { auth, getPizzas } from "./Firebase";
+import { auth } from "./Firebase";
 
 const NavigationBar = ({ userName, setUserName }) => {
-  const [testState, setTestState] = useState([]);
-
   const logoutHandler = async () => {
     auth.signOut();
     setUserName("");
@@ -18,7 +16,7 @@ const NavigationBar = ({ userName, setUserName }) => {
 
   return (
     <Navbar collapseOnSelect expand="lg">
-      <Navbar.Brand eventKey="0" as={Link} to="/">
+      <Navbar.Brand as={Link} to="/">
         <img src={icon} width="50px" alt="Home" />
         <h2>Pizzeria Delizioso</h2>
       </Navbar.Brand>

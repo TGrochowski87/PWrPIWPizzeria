@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Form, Container, Row, Col, FormControl, Image } from "react-bootstrap";
+import React, { useContext, useState } from "react";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 
 import Button from "@material-ui/core/Button";

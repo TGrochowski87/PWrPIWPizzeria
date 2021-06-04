@@ -8,16 +8,20 @@ import Order from "./Order";
 const HistoryPage = () => {
   const [orders, setOrders] = useState([]);
 
-  useEffect(async () => {
-    const ordersData = await getOrderHistory(auth.currentUser);
+  useEffect(() => {
+    const fetchData = async () => {
+      const ordersData = await getOrderHistory(auth.currentUser);
 
-    let ordersArray = [];
+      let ordersArray = [];
 
-    ordersData.forEach((doc) => {
-      ordersArray.push(doc.data());
-    });
+      ordersData.forEach((doc) => {
+        ordersArray.push(doc.data());
+      });
 
-    setOrders(ordersArray);
+      setOrders(ordersArray);
+    };
+
+    fetchData();
   }, []);
 
   return (

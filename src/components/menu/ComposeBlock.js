@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Form, Container, Row, Col, FormControl } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
 import Button from "@material-ui/core/Button";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
