@@ -3,20 +3,15 @@ import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useHistory } from "react-router";
 
-//import useFetch from "use-http";
 import { auth } from "../../utils/Firebase";
 
-const Login = ({ setUserName, setLogoutShow }) => {
+const Login = ({ setUserName }) => {
   const history = useHistory();
 
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
 
   const [wrongInput, setWrongInput] = useState(false);
-
-  // const { post, response } = useFetch(
-  //   `https://webhomebudget.azurewebsites.net/api/login`
-  // );
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -28,7 +23,8 @@ const Login = ({ setUserName, setLogoutShow }) => {
         history.push("/");
       })
       .catch((error) => {
-        console.log(error);
+        alert(error.message);
+        return;
       });
   };
 
@@ -53,11 +49,11 @@ const Login = ({ setUserName, setLogoutShow }) => {
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>Hasło</Form.Label>
                 <Form.Control
                   className={wrongInput ? "wrong-input" : ""}
                   type="password"
-                  placeholder="Password"
+                  placeholder="Hasło"
                   value={passwordInput}
                   onChange={(event) => setPasswordInput(event.target.value)}
                   onFocus={() => {
@@ -67,10 +63,10 @@ const Login = ({ setUserName, setLogoutShow }) => {
               </Form.Group>
 
               <Button variant="primary" type="submit">
-                Sign in
+                Zaloguj
               </Button>
               <Button variant="link" href="/register">
-                Register new account
+                Zarejestruj się
               </Button>
             </Form>
           </Col>

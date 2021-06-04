@@ -12,8 +12,8 @@ const MessageUnauth = () => {
       </Row>
       <Row className="d-flex justify-content-center mb-3">
         <h4>
-          Before you try our delicious pizza, sign in to your account or create
-          a new one!
+          Zanim spróbujesz naszej wspaniałej pizzy zaloguj się na swoje konto
+          albo załóż nowe.
         </h4>
       </Row>
       <Row>
@@ -24,7 +24,7 @@ const MessageUnauth = () => {
             variant="outline-secondary"
             className="w-75"
           >
-            Login
+            Logowanie
           </Button>
         </Col>
         <Col sm={6} className="my-1">
@@ -34,7 +34,7 @@ const MessageUnauth = () => {
             variant="outline-secondary"
             className="w-75"
           >
-            Register
+            Rejestracja
           </Button>
         </Col>
       </Row>

@@ -55,3 +55,8 @@ export const sendOrder = async (user, order, price) => {
     price: price,
   });
 };
+
+export const getOrderHistory = async (user) => {
+  const docsRef = firestore.collection("archivedOrders");
+  return docsRef.where("user", "==", user.uid).get();
+};

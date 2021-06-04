@@ -12,8 +12,8 @@ const MessageAuth = ({ userName }) => {
       </Row>
       <Row className="d-flex justify-content-center mb-3">
         <h4>
-          Welcome <b>{userName}</b>! Let's go and check the menu! Or maybe
-          compose your own perfect pizza?
+          Witaj <b>{userName}</b>! Zapraszamy do przejrzenia naszego menu, albo
+          skomponowania własnej perfekcyjnej pizzy.
         </h4>
       </Row>
       <Row>
@@ -30,11 +30,11 @@ const MessageAuth = ({ userName }) => {
         <Col sm={6} className="my-1">
           <Button
             as={Link}
-            to="/compose"
+            to="/history"
             variant="outline-secondary"
             className="w-75"
           >
-            Compose
+            Historia zamówień
           </Button>
         </Col>
       </Row>

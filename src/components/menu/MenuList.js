@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import PizzaInfo from "./PizzaInfo";
 import ComposeBlock from "./ComposeBlock";
 import ComposeWindow from "./ComposeWindow";
-import { auth, getPizzas } from "../../utils/Firebase";
+import { getPizzas } from "../../utils/Firebase";
 
 const MenuList = () => {
   const [pizzas, setPizzas] = useState([]);
@@ -12,16 +12,20 @@ const MenuList = () => {
   const [composingSize, setCompozingSize] = useState("Duża 42 cm");
   const [composingPrice, setCompozingPrice] = useState(46, 4);
 
-  useEffect(async () => {
-    const pizzasData = await getPizzas();
+  useEffect(() => {
+    const fetchData = async () => {
+      const pizzasData = await getPizzas();
 
-    let pizzasArray = [];
+      let pizzasArray = [];
 
-    pizzasData.forEach((doc) => {
-      pizzasArray.push(doc.data());
-    });
+      pizzasData.forEach((doc) => {
+        pizzasArray.push(doc.data());
+      });
 
-    setPizzas(pizzasArray);
+      setPizzas(pizzasArray);
+    };
+
+    fetchData();
   }, []);
 
   return (

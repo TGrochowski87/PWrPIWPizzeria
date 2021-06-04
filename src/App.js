@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   BrowserRouter as Router,
@@ -7,18 +7,18 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import HomePage from "./home/HomePage";
+import HomePage from "./components/home/HomePage";
 import useSessionStorageState from "./utils/SessionStorageState";
 import NavigationBar from "./utils/NavigationBar";
 import Login from "./components/login/Login";
 import Register from "./components/login/Register";
 import MenuPage from "./components/menu/MenuPage";
+import HistoryPage from "./components/history/HistoryPage";
 import { auth } from "./utils/Firebase";
 
 import "./styles/App.scss";
 
 function App() {
-  const [logoutShow, setLogoutShow] = useState(false);
   const [userName, setUserName] = useSessionStorageState("", "userName");
 
   return (
@@ -33,13 +33,7 @@ function App() {
           />
           <Route
             path="/login"
-            render={(props) => (
-              <Login
-                {...props}
-                setUserName={setUserName}
-                setLogoutShow={setLogoutShow}
-              />
-            )}
+            render={(props) => <Login {...props} setUserName={setUserName} />}
           />
           <Route path="/register" component={Register} />
           <Route
@@ -47,6 +41,16 @@ function App() {
             render={(props) =>
               auth.currentUser ? (
                 <MenuPage {...props} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+          <Route
+            path="/history"
+            render={(props) =>
+              auth.currentUser ? (
+                <HistoryPage {...props} />
               ) : (
                 <Redirect to="/login" />
               )

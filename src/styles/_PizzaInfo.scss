@@ -13,7 +13,6 @@
   .row {
     position: relative;
     margin: 0;
-    //height: 100%;
 
     img {
       margin: 1rem 0;
@@ -27,16 +26,12 @@
       top: 1px;
       right: 0;
 
-      //display: none;
-
       width: 0;
       height: 0;
       border-top: 6px solid transparent;
       border-bottom: 6px solid transparent;
 
       border-right: 12px solid rgb(231, 24, 24);
-
-      //background-color: pink;
     }
   }
 }

@@ -16,22 +16,6 @@ const NavigationBar = ({ userName, setUserName }) => {
     setUserName("");
   };
 
-  const test = async () => {
-    let testData = await getPizzas();
-
-    //console.log(testData);
-
-    testData.forEach((doc) => {
-      console.log(doc.data());
-    });
-
-    // let temp = [];
-    // for (let pizza of testData) {
-    //   temp.push(pizza);
-    // }
-    // console.log(temp);
-  };
-
   return (
     <Navbar collapseOnSelect expand="lg">
       <Navbar.Brand eventKey="0" as={Link} to="/">
@@ -44,42 +28,28 @@ const NavigationBar = ({ userName, setUserName }) => {
           {userName ? (
             <>
               <Nav.Item>
-                <Nav.Link eventKey="1" as={Link} to="/menu">
+                <Nav.Link eventKey="1" as={Link} to="/history">
+                  Historia zamówień
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="2" as={Link} to="/menu">
                   Menu
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link
-                  eventKey="3"
-                  onClick={() => {
-                    //console.log(auth);
-                    test();
-                  }}
-                >
-                  AAAAAAAAA
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="5" as={Link} to="/" onClick={logoutHandler}>
-                  Log out
+                <Nav.Link eventKey="3" as={Link} to="/" onClick={logoutHandler}>
+                  Wyloguj
                 </Nav.Link>
               </Nav.Item>
             </>
           ) : (
             <>
               <Nav.Item>
-                <Nav.Link
-                  eventKey="6"
-                  onClick={() => {
-                    console.log(auth);
-                  }}
-                >
-                  AAAAAAAAA
+                <Nav.Link eventKey="4" as={Link} to="/login">
+                  Zaloguj
                 </Nav.Link>
               </Nav.Item>
-              <Nav.Link as={Link} to="/login">
-                Sign in
-              </Nav.Link>
             </>
           )}
         </Nav>

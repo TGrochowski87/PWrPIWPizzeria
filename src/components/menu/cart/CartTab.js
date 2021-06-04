@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { Button } from "react-bootstrap";
@@ -12,7 +12,7 @@ const CartTab = () => {
 
   const { content, setContent } = useContext(CartContext);
 
-  const confirmOrder = () => {
+  const confirmOrder = async () => {
     if (content.length === 0) {
       alert("Shopping cart is empty");
       return;
@@ -24,8 +24,15 @@ const CartTab = () => {
         return prev + curr;
       });
 
-    sendOrder(auth.currentUser, content, sum);
+    await sendOrder(auth.currentUser, content, sum).then(() => {
+      setContent([]);
+      setActive(false);
+    });
   };
+
+  useEffect(() => {
+    setActive(true);
+  }, [content]);
 
   return (
     <div className={`cart-space ${active ? "cart-active" : ""}`}>

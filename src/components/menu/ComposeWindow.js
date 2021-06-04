@@ -103,7 +103,6 @@ const ComposeWindow = ({
                 label="sos łagodny"
                 checked={switchStatus.sauce}
                 onChange={() => {
-                  console.log("click");
                   setSwitchStatus({
                     ...switchStatus,
                     sauce: !switchStatus.sauce,
@@ -123,7 +122,6 @@ const ComposeWindow = ({
                 label="ciasto grube"
                 checked={switchStatus.dough}
                 onChange={() => {
-                  console.log("click");
                   setSwitchStatus({
                     ...switchStatus,
                     dough: !switchStatus.dough,
@@ -140,7 +138,6 @@ const ComposeWindow = ({
               size="sm"
               custom
               onChange={(event) => {
-                console.log(event.target.value);
                 setExtraSauce(event.target.value);
               }}
             >
