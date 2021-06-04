@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <NavigationBar userName={userName} setUserName={setUserName} />
         <Switch>
           <Route

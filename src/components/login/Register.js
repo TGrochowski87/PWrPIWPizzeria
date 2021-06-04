@@ -26,8 +26,6 @@ const Register = () => {
             });
           })
           .catch((error) => {
-            //console.log("1");
-            //console.log(error);
             alert(error.message);
             return;
           });
@@ -36,8 +34,6 @@ const Register = () => {
         history.push("/login");
       })
       .catch((error) => {
-        //console.log("2");
-        //console.log(error);
         alert(error.message);
         return;
       });
