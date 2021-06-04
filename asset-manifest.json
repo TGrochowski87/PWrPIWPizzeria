@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/PWrPIWPizzeria/static/css/main.5937a239.chunk.css",
-    "main.js": "/PWrPIWPizzeria/static/js/main.c457a28a.chunk.js",
-    "main.js.map": "/PWrPIWPizzeria/static/js/main.c457a28a.chunk.js.map",
+    "main.js": "/PWrPIWPizzeria/static/js/main.ca81893e.chunk.js",
+    "main.js.map": "/PWrPIWPizzeria/static/js/main.ca81893e.chunk.js.map",
     "runtime-main.js": "/PWrPIWPizzeria/static/js/runtime-main.d0656aea.js",
     "runtime-main.js.map": "/PWrPIWPizzeria/static/js/runtime-main.d0656aea.js.map",
     "static/js/2.b73fa816.chunk.js": "/PWrPIWPizzeria/static/js/2.b73fa816.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.d0656aea.js",
     "static/js/2.b73fa816.chunk.js",
     "static/css/main.5937a239.chunk.css",
-    "static/js/main.c457a28a.chunk.js"
+    "static/js/main.ca81893e.chunk.js"
   ]
 }
