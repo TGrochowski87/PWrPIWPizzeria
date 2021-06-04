@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 
 import { auth } from "../../utils/Firebase";
 
@@ -65,9 +66,9 @@ const Login = ({ setUserName }) => {
               <Button variant="primary" type="submit">
                 Zaloguj
               </Button>
-              <Button variant="link" href="/register">
-                Zarejestruj się
-              </Button>
+              <Link to="/register">
+                <Button variant="link">Zarejestruj się</Button>
+              </Link>
             </Form>
           </Col>
         </Row>
